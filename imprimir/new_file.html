@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+	<head>
+		<meta charset='utf-8' />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+
+		<title>CAAL - Chamados</title>
+		<meta name='description' content='Descrição do chamado preparada para impressão' />
+		<meta name='author' content='CAAL - Setor de Informática' />
+
+		<meta name='viewport' content='width=device-width; initial-scale=1.0' />
+		
+		<link rel='stylesheet' href='imprimir.css' />
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>Chamado: 0000 | Assunto | DD de Mês de AAAA as HH:MM:SS</h1>
+			</header>
+			<table>
+				<tr>
+					<td>
+						<h2>Dados do Chamado</h2>
+						<p>ID: <div class='info'>0000</div></p>
+						<p>Assunto: <div class='info'>Assunto do chamado</div></p>
+						<p>Descrição: <div class='info'>Descrição detalhada do chamado</div></p>
+						<p>Técnico Responsável: <div class='info'>Nome do Técnico Responsável</div></p>
+						<p>Estado: <div class='info'>Aberto / Finalizado</div></p>
+					</td>
+					<td>
+						<h2>Datas</h2>
+						<p>Data Abertura: <div class='info'>0000</div></p>
+						<p>Data Encerramento: <div class='info'>Assunto do chamado</div></p>
+						<p>Data de Vencimento: <div class='info'>Descrição detalhada do chamado</div></p>
+						<p>Data inicial da solução do Chamado: <div class='info'>Nome do Técnico Responsável</div></p>
+						<p>Data prevista para solução do Chamado: <div class='info'>Aberto / Finalizado</div></p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h2>Dados do Usuário</h2>
+						<p>Nome do Usuário: <div class='info'>XXXXXXXXXXXXX XXXXXXXX XXXXXXXXXX</div></p>
+						<p>E-mail: <div class='info'>usuario.caal@caal.com.br</div></p>
+						<p>Ramal / Telefone: <div class='info'>Número do Ramal / Telefone</div></p>
+						<p>Usuário: <div class='info'>Nome de Usuário do ldap</div></p>
+						<p>Setor: <div class='info'>Informática</div></p>
+						<p>Filial: <div class='info'>CAAL</div></p>
+					</td>
+					<td>
+						<h2>Dados do Equipamento</h2>
+						<p>Nome: <div class='info'>0000</div></p>
+						<p>Descrção: <div class='info'>Assunto do chamado</div></p>
+						<p>Número de Série: <div class='info'>Descrição detalhada do chamado</div></p>
+						<p>IP: <div class='info'>Nome do Técnico Responsável</div></p>
+						<p>Tipo de Equipamento: <div class='info'>Aberto / Finalizado</div></p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<h2>Histórico do Chamado</h2>
+						<p>Status (Finalizado / Reaberto / Previsão) | DD de Mês de AAAA as HH:MM:SS | Responsável: nome <div class='info'>Informações sobre o status</div></p>
+						<p>Transferência | DD de Mês de AAAA as HH:MM:SS<div class='info'>Transferido de: XXXXXXXXXXX para: XXXXXXXXXXX</div></p>
+					</td>
+				</tr>
+			</table>
+			<footer>
+				<p>
+					Informação Gerada: DD de Mês de AAAA as HH:MM:SS
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

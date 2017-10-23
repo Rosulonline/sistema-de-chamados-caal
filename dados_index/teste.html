@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<title> CAAL - Chamados</title>
+		<!-- INÍCIO: ESTILOS E IMPORTAÇÃO DE JS -->
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link href="/css/smoothness/jquery-ui.custom.css" rel="stylesheet" />
+		<script src="/js/jquery.js"></script>
+		<script src="/js/jquery-ui.custom.js"></script>
+		<script src="/js/jquery.toastmessage.js"></script>
+		<script src="/js/highcharts.js"></script>
+		<!--script src="/js/modules/exporting.js"></script-->
+		<script src="/js/jquery.form.js"></script>
+		<!-- FIM: 	 ESTILOS E IMPORTAÇÃO DE JS -->
+		<script>
+			// Variável global do objeto temporizador.
+			var timer;
+
+			function parar() {
+				window.clearTimeout(this.timer);
+			}
+
+			function comecarReload() {
+				var aux = 60 * 1000 * 10;
+				timer = window.setTimeout("location.reload()", aux);
+			}
+
+			function forcarReload() {
+				window.location.reload();
+			}
+		</script>
+		<script>
+			$(function() {
+				/*TABS*/
+				$("#tabs").tabs({
+
+					beforeLoad : function(event, ui) {
+						ui.jqXHR.error(function() {
+							ui.panel.html("<p>Carregando...</p>");
+						});
+					}
+				});
+				/*FIM TABS*/
+				$("#accordion").accordion({
+					heightStyle : "content",
+					collapsible : true,
+					active : false
+				});
+				$(".editar").button({
+					icons : {
+						primary : "ui-icon-pencil"
+					}
+				});
+
+			});
+		</script>
+	</head>
+	<body onload="comecarReload();">
+		<div id="corpo">
+			<div id="cabecalho">
+				<p>
+					Sistema de Chamados
+				</p>
+			</div><!-- #cabecalho -->
+			<div id="conteudo">
+				<div id="tabs">
+					<ul>
+						<li>
+							<a href="#accordion" OnClick="comecarReload();">Chamados Abertos</a>
+						</li>
+						<li>
+							<a href="#filiais" OnClick="parar();">Filiais</a>
+						</li>
+						<li>
+							<a href="#ultimos_chamados" OnClick="parar();">Ultimos chamados</a>
+						</li>
+					</ul>
+					<div id="filiais">
+						<p>
+							Carregando...
+						</p>
+						<script>
+							$("#filiais").ready(function() {
+								$("#filiais").load("/dados_index/sub_index_filial.php");
+							});
+						</script>
+					</div>
+					<div id="ultimos_chamados">
+						<p>
+							Carregando...
+						</p>
+						<script>
+							$("#ultimos_chamados").ready(function() {
+								$("#ultimos_chamados").load("/dados_index/chamados_ultimos_geral.php");
+							});
+						</script>
+					</div>
+					<div id='accordion'>
+						<h3>ID: 0107 | Outro : VAFIN002<span style='display: inline; float: right;' class='ui-icon ui-icon-alert'>data expirada</span></h3>
+						<div>
+							Assunto: <a>Outro</a>Descrição: <a>Máquina não está fazendo login na rede com usuário e senha do domínio ..</a>Usuário: <a href='usuario.php?id=29' >Paulo Roberto Dias Guerra</a>Técnico Responsável: <a>Ronildo Campos Becker</a>Data Abertura: <a>15 de Agosto de 2013 as 13:52:11</a>Data Vencimento: <a>31 de Dezembro de 1969 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0107'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0079 | Outro : Microsoft<span style='display: inline; float: right;' class='ui-icon ui-icon-alert'>data expirada</span></h3>
+						<div>
+							Assunto: <a>Outro</a>Descrição: <a>Colocar mais um cabo de rede, na bancada do Alex, será realizado pela manutenção elétrica, solicitar.</a>Usuário: <a href='usuario.php?id=95' >Alex Vercilino Franklin Da Silva</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>02 de Agosto de 2013 as 14:22:55</a>Data Vencimento: <a>09 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0079'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0073 | Outro : LINUXADM<span style='display: inline; float: right;' class='ui-icon ui-icon-alert'>data expirada</span></h3>
+						<div>
+							Assunto: <a>Outro</a>Descrição: <a>AQUISIÇÃO E TESTE DE UM LINK DE 2MB, JUNTO A EMPRESA CONESUL, PELO PRAZO DE 30 DIAS, COM 8 IP&#039;S VÁLIDOS, SENDO QUE SERÃO UTILIZADOS PARA A CONFIGURAÇÃO DOS SERVIDORES 5 DESTES IP&#039;S.</a>Usuário: <a href='usuario.php?id=165' >Servidores</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>01 de Agosto de 2013 as 08:58:05</a>Data Vencimento: <a>15 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0073'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0074 | Outro : JEDI<span style='display: inline; float: right;' class='ui-icon ui-icon-alert'>data expirada</span></h3>
+						<div>
+							Assunto: <a>Outro</a>Descrição: <a>CRIAR VLAN JUNTAMENTE COM A VIACONNECT, PARA INTEGRAR O NOVO LINK, AO SWITCH GERENCIÁVEL, ANÁLISAR COM QUAL DOS LINKS IRÁ REALIZAR BALANCEMANETO.</a>Usuário: <a href='usuario.php?id=165' >Servidores</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>01 de Agosto de 2013 as 09:00:41</a>Data Vencimento: <a>15 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0074'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0077 | Outro : APSERVER<span style='display: inline; float: right;' class='ui-icon ui-icon-alert'>data expirada</span></h3>
+						<div>
+							Assunto: <a>Outro</a>Descrição: <a>Cadastrar Cals no Servidor apserver 192.168.1.23, mas primeiro verificar o registro das licenças para a cooperativa.</a>Usuário: <a href='usuario.php?id=165' >Servidores</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>02 de Agosto de 2013 as 14:19:04</a>Data Vencimento: <a>15 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0077'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0090 | Manutenção : DCPEC001<span style='display: inline; float: right;' class='ui-icon ui-icon-alert'>data expirada</span></h3>
+						<div>
+							Assunto: <a>Manutenção</a>Descrição: <a>Sistema operacional desatualizado.</a>Usuário: <a href='usuario.php?id=168' >Juliano Vissoto Dos Santos</a>Técnico Responsável: <a>Madson Verdi Junior</a>Data Abertura: <a>06 de Agosto de 2013 as 17:26:50</a>Data Vencimento: <a>15 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0090'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0091 | Manutenção : CXPEC16<span style='display: inline; float: right;' class='ui-icon ui-icon-alert'>data expirada</span></h3>
+						<div>
+							Assunto: <a>Manutenção</a>Descrição: <a>Sistema operacional desatualizado.</a>Usuário: <a href='usuario.php?id=168' >Juliano Vissoto Dos Santos</a>Técnico Responsável: <a>Madson Verdi Junior</a>Data Abertura: <a>06 de Agosto de 2013 as 17:27:26</a>Data Vencimento: <a>15 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0091'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0088 | Manutenção : Microsoft</h3>
+						<div>
+							Assunto: <a>Manutenção</a>Descrição: <a>Sistema operacional desatualizado</a>Usuário: <a href='usuario.php?id=19' >Adriana Ibarra Vieira</a>Técnico Responsável: <a>Ronildo Campos Becker</a>Data Abertura: <a>06 de Agosto de 2013 as 17:23:57</a>Data Vencimento: <a>16 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0088'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0102 | Liberação de E-mails : JEDI</h3>
+						<div>
+							Assunto: <a>Liberação de E-mails</a>Descrição: <a>Criação de regra juntamente com a viaconnect para liberação e recebimento dos e-mails da garten, através do dominio.</a>Usuário: <a href='usuario.php?id=165' >Servidores</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>14 de Agosto de 2013 as 18:27:12</a>Data Vencimento: <a>21 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0102'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0075 | Outro : BRALM002</h3>
+						<div>
+							Assunto: <a>Outro</a>Descrição: <a>Refazer o cabeamento para as estações do Almoxarifado e Manutenção, otimizando assim, a utilizaçao dos Switchs, e melhorando a performance, eliminando a estrutura antiga, diminuindo os pontos sujeito a falhas. </a>Usuário: <a href='usuario.php?id=113' >Nilo Francisco Romero</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>01 de Agosto de 2013 as 09:20:48</a>Data Vencimento: <a>30 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0075'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0103 | Outro : VARH002</h3>
+						<div>
+							Assunto: <a>Outro</a>Descrição: <a>Calculadora com problema na tecla de número 5, solicitar garantia a loja Balão Informática.
+							<br />
+							<br />
+							</a>Usuário: <a href='usuario.php?id=40' >Fabiana Fagundes Rodrigues</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>14 de Agosto de 2013 as 18:31:21</a>Data Vencimento: <a>30 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0103'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0104 | Manutenção : DBSERVER </h3>
+						<div>
+							Assunto: <a>Manutenção</a>Descrição: <a>Cotação e compra de memória para o Servidor Dbserver (192.168.1.22) 16GB de Ram (4X4) e 02 discos de 300Gb.</a>Usuário: <a href='usuario.php?id=165' >Servidores</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>14 de Agosto de 2013 as 18:40:02</a>Data Vencimento: <a>30 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href='../chamado.php?id=0104'' >
+								Detalhar Chamado
+							</button>
+						</div><h3>ID: 0105 | Manutenção : DBSERVER </h3>
+						<div>
+							Assunto: <a>Manutenção</a>Descrição: <a>Cotação e compra de memória para o Servidor Dbserver (192.168.1.22) 16GB de Ram (4X4) e 02 discos de 300Gb.</a>Usuário: <a href='usuario.php?id=165' >Servidores</a>Técnico Responsável: <a>Jorge Vilmar De Oliveira Soares</a>Data Abertura: <a>14 de Agosto de 2013 as 18:40:09</a>Data Vencimento: <a>30 de Agosto de 2013 as 18:00:00</a>Estado: <a>Aberto</a>
+							<br/>
+							<button class='editar' onclick='document.location.href="../chamado.php?id=0105"' >
+								Detalhar Chamado
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='rodape'>
+				
+			</div>
+		</div>
+		<div id='nav-bar'>
+			<ul>
+				<li>
+					<a href='/sair.php'>Encerrar Sessão</a>
+				</li>
+				<li>
+					<a>Madson Verdi Junior</a>
+				</li>
+				<li>
+					<a href='/relatorio.php'>Relatórios</a>
+				</li>
+				<li>
+					<a class='chamado-novo' href='/formularios/cadastro_chamado.php'>Novo Chamado</a>
+				</li>
+				<li>
+					<form action='/buscar.php' method='get'>
+						<input class='input-busca' name='nome' type='text' title='Buscar' />
+					</form>
+				</li>
+			</ul>
+		</div>
+		<script>
+			$(function() {
+$('.input-busca').val($('.input-busca').attr('title'));
+$('.input-busca').focusout(function(){
+$('.input-busca-in').switchClass('input-busca-in', 'input-busca', 200 );
+$(this).val($(this).attr('title'));
+});
+$('.input-busca').focusin(function(){
+$( '.input-busca' ).switchClass('input-busca', 'input-busca-in', 200 );
+$(this).val('');
+});
+$('.input-busca').keypress(function(event){
+if(event.which == 13 ){
+$( this ).submit();
+}
+})
+.tooltip({ content: 'Digite alguma informação e pressione ENTER para confirmar' })
+.autocomplete({
+source:'/json/busca.php',
+minLength: 3,
+select: function(event, ui) {
+location.replace('/usuario.php?id=' + ui.item.id);
+}
+});
+$('.chamado-novo').click(function(event){
+event.preventDefault();
+$.post('/novo/dados_temp_formulario.php', { novo: true } ).done(function(){	location.replace($('.chamado-novo').attr('href')); });
+});
+});
+		</script>
+	</body>
+</html>

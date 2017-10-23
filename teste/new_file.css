@@ -1,0 +1,11 @@
+body {
+
+}
+
+.formulario{
+	
+}
+.formulario label, .formulario input{
+	display: inline-block;
+}
+
